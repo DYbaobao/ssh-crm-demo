@@ -4,5 +4,6 @@
 public class Studet {
     public void show(){
         System.out.println("dhviuszfhi");
+        System.out.println();
     }
 }
