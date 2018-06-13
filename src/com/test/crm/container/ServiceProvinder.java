@@ -3,25 +3,26 @@ package com.test.crm.container;
 import org.apache.commons.lang.StringUtils;
 
 public class ServiceProvinder {
-     private static ServiceProvinderCore sc; 
-     static{
-    	 sc = new ServiceProvinderCore();
-    	 sc.load("beans.xml");
-     }
-     
-     public static Object getService(String beanName){
-    	 if(StringUtils.isBlank(beanName)){
-    		 throw new RuntimeException("Äú·ÃÎÊµÄ·şÎñÃû³Æ²»ÄÜÎª¿Õ");
-    	 }
-    	 Object bean = null;
-    	 //Èç¹ûspring ÈİÆ÷ÖĞ°üº¬ beanName
-    	 if(sc.context.containsBean(beanName)){
-    		 bean= sc.context.getBean(beanName);
-    	 }
-    	 //Èç¹ûspring ÈİÆ÷ÖĞ²»°üº¬ beanName
-    	 if(bean==null){
-    		 throw new RuntimeException("Äú·ÃÎÊµÄ·şÎñÃû³Æ¡¾"+beanName+"¡¿²»´æÔÚ");
-    	 }
-    	 return bean;
-     }
+	private static ServiceProvinderCore sc;
+	static{
+		sc = new ServiceProvinderCore();
+		sc.load("beans.xml");
+	}
+
+	public static Object getService(String beanName){
+		if(StringUtils.isBlank(beanName)){
+			throw new RuntimeException("æ‚¨è®¿é—®çš„æœåŠ¡åç§°ä¸èƒ½ä¸ºç©º");
+		}
+		Object bean = null;
+		//å¦‚æœspring å®¹å™¨ä¸­åŒ…å« beanName
+		if(sc.context.containsBean(beanName)){
+			bean= sc.context.getBean(beanName);
+		}
+		//å¦‚æœspring å®¹å™¨ä¸­ä¸åŒ…å« beanName
+		if(bean==null){
+			throw new RuntimeException("æ‚¨è®¿é—®çš„æœåŠ¡åç§°ã€"+beanName+"ã€‘ä¸å­˜åœ¨");
+		}
+		return bean;
+	}
 }
+

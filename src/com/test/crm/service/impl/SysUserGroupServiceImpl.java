@@ -19,43 +19,44 @@ import com.test.crm.service.ISysUserGroupService;
 @Transactional(readOnly=true)
 @Service(ISysUserGroupService.SERVICE_NAME)
 public class SysUserGroupServiceImpl implements ISysUserGroupService {
-    
+
 	@Resource(name=ISysUserGroupDao.SERVICE_NAME)
 	private ISysUserGroupDao iSysUserGroupDao;
 
 	@Transactional(isolation=Isolation.DEFAULT,propagation=Propagation.REQUIRED,readOnly=false)
 	public void saveSysUserGroup(SysUserGroup sysUserGroup) {
-	
+
 		iSysUserGroupDao.save(sysUserGroup);
 	}
 
 	@SuppressWarnings({ "unused", "rawtypes", "unchecked" })
 	@Override
 	public List<SysUserGroup> findSysUserGroups(String name, String principal) {
-		 //»ñÈ¡²¿ÃÅµÄÃû³Æ
-	     name = "ÔËÓª²¿";
-	     //»ñÈ¡²¿ÃÅµÄ¸ºÔğÈË
-	     principal ="wfg";
-	     //×éÖ¯hqlÓï¾ä
-	     //·â×°²éÑ¯µÄÌõ¼ş
-	     String whereHql = " ";
-	     //·â×°²éÑ¯ËùĞèÒªµÄ²ÎÊı
-	     List paramsList = new ArrayList<>();
-	     if(StringUtils.isNotBlank(name)){
-	    	 whereHql = " and o.name LIKE ? ";
-	    	 paramsList.add("%"+name+"%");
-	     }
-	     if(StringUtils.isNotBlank(principal)){
-	    	 whereHql += " and o.principal = ? ";
-	    	 paramsList.add(principal);
-	     }	
-	     Object[]  params = paramsList.toArray();
-	     //×éÖ¯ÅÅĞò
-	     LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
-	     orderby.put("o.id", "asc");
-	     orderby.put("o.name", "desc");
-	     List<SysUserGroup> list = iSysUserGroupDao.findObjectsByConditionWithNoPage(whereHql,params,orderby);
+		//è·å–éƒ¨é—¨çš„åç§°
+		name = "è¿è¥éƒ¨";
+		//è·å–éƒ¨é—¨çš„è´Ÿè´£äºº
+		principal ="wfg";
+		//ç»„ç»‡hqlè¯­å¥
+		//å°è£…æŸ¥è¯¢çš„æ¡ä»¶
+		String whereHql = " ";
+		//å°è£…æŸ¥è¯¢æ‰€éœ€è¦çš„å‚æ•°
+		List paramsList = new ArrayList<>();
+		if(StringUtils.isNotBlank(name)){
+			whereHql = " and o.name LIKE ? ";
+			paramsList.add("%"+name+"%");
+		}
+		if(StringUtils.isNotBlank(principal)){
+			whereHql += " and o.principal = ? ";
+			paramsList.add(principal);
+		}
+		Object[]  params = paramsList.toArray();
+		//ç»„ç»‡æ’åº
+		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
+		orderby.put("o.id", "asc");
+		orderby.put("o.name", "desc");
+		List<SysUserGroup> list = iSysUserGroupDao.findObjectsByConditionWithNoPage(whereHql,params,orderby);
 		return list;
 	}
 
 }
+

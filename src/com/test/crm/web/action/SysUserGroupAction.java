@@ -16,30 +16,30 @@ import com.test.crm.web.form.SysUserGroupForm;
 
 @SuppressWarnings("serial")
 public class SysUserGroupAction extends ActionSupport implements ModelDriven<SysUserGroupForm> {
-    
-     private SysUserGroupForm sysUserGroupForm  = new SysUserGroupForm();
-	
-	 public String save () throws IllegalAccessException, InvocationTargetException{
-		
-		
-		// ÊµÀı»¯po¶ÔÏó
-		 SysUserGroup sysUserGroup = new SysUserGroup();
-		 //¸³Öµvo¶ÔÏóµ½poÖĞ
-//		 BeanUtils.copyProperties(sysUserGroup, sysUserGroupForm); µ¼ÈëÁËspringµÄ°ü²»ÄÜ²åÈëÖµÒªµ¼org.apache.commons.beanutils.BeanUtils;
-		 BeanUtils.copyProperties(sysUserGroup, sysUserGroupForm);
-		 
-		 System.out.println(sysUserGroup.getName());
-		 //»ñÈ¡ÒµÎñ²ãµÄ¶ÔÏó£¨±¾ÏîÄ¿Struts2ºÍspringÊÇ·ÖÀë µÄ£©
-		 ISysUserGroupService iSysUserGroupService  =
-				 (ISysUserGroupService)ServiceProvinder.getService(ISysUserGroupService.SERVICE_NAME);
-		 //±£´æpo¶ÔÏó
-		 iSysUserGroupService.saveSysUserGroup(sysUserGroup);
-		 return null;	 
-     }
+
+	private SysUserGroupForm sysUserGroupForm  = new SysUserGroupForm();
+
+	public String save () throws IllegalAccessException, InvocationTargetException{
+
+
+		// å®ä¾‹åŒ–poå¯¹è±¡
+		SysUserGroup sysUserGroup = new SysUserGroup();
+		//èµ‹å€¼voå¯¹è±¡åˆ°poä¸­
+//		 BeanUtils.copyProperties(sysUserGroup, sysUserGroupForm); å¯¼å…¥äº†springçš„åŒ…ä¸èƒ½æ’å…¥å€¼è¦å¯¼org.apache.commons.beanutils.BeanUtils;
+		BeanUtils.copyProperties(sysUserGroup, sysUserGroupForm);
+
+		System.out.println(sysUserGroup.getName());
+		//è·å–ä¸šåŠ¡å±‚çš„å¯¹è±¡ï¼ˆæœ¬é¡¹ç›®Struts2å’Œspringæ˜¯åˆ†ç¦» çš„ï¼‰
+		ISysUserGroupService iSysUserGroupService  =
+				(ISysUserGroupService)ServiceProvinder.getService(ISysUserGroupService.SERVICE_NAME);
+		//ä¿å­˜poå¯¹è±¡
+		iSysUserGroupService.saveSysUserGroup(sysUserGroup);
+		return null;
+	}
 
 	@Override
 	public SysUserGroupForm getModel() {
-		
+
 		return sysUserGroupForm;
 	}
 }

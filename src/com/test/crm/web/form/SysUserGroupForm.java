@@ -1,6 +1,6 @@
 package com.test.crm.web.form;
 /**
- * vo ±£´æjsp ¶ÔÏóµÄÖµ
+ * vo ä¿å­˜jsp å¯¹è±¡çš„å€¼
  */
 public class SysUserGroupForm implements java.io.Serializable {
      

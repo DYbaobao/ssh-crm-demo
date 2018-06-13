@@ -2,17 +2,17 @@ package com.test.crm.entity;
 
 import java.io.Serializable;
 /**
-  po¶ÔÏó,¶ÔÓ¦Êı¾İ¿âµÄÖµ
+ poå¯¹è±¡,å¯¹åº”æ•°æ®åº“çš„å€¼
  */
 public class SysUserGroup implements Serializable {
-	
+
 	private static final long serialVersionUID = 2055830812290335432L;
 	private Integer id;
-	private String  remark;//±¸×¢
-	private String name;//²¿ÃÅÃû³Æ
-	
-	private String principal;//²¿ÃÅ¸ºÔğÈË
-	private String incumbent;//²¿ÃÅÖ°ÄÜ
+	private String  remark;//å¤‡æ³¨
+	private String name;//éƒ¨é—¨åç§°
+
+	private String principal;//éƒ¨é—¨è´Ÿè´£äºº
+	private String incumbent;//éƒ¨é—¨èŒèƒ½
 	public Integer getId() {
 		return id;
 	}
@@ -43,4 +43,4 @@ public class SysUserGroup implements Serializable {
 	public void setIncumbent(String incumbent) {
 		this.incumbent = incumbent;
 	}
-} 
+}
